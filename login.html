@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Login | MediFast</title>
+</head>
+<body class="auth-page">
+    <div class="auth-box">
+        <h2>MediFast Login</h2>
+        <form onsubmit="event.preventDefault();">
+            <input type="email" id="email" placeholder="Email Address">
+            <input type="password" id="password" placeholder="Password">
+            <button id="LoginBtn" type="submit">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+
+    <!-- These MUST be at the bottom -->
+    <script type="module" src="firebase-init.js"></script>
+    <script type="module" src="login.js"></script>
+</body>
+</html>

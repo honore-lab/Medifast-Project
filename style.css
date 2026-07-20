@@ -1,0 +1,240 @@
+body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; }
+nav { 
+    display: flex; justify-content: space-between; padding: 20px 50px; 
+    background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: fixed; width: 100%; 
+}
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-right: 20px; }
+nav a { text-decoration: none; color: #0056b3; font-weight: bold; }
+
+section { height: 100vh; padding: 100px 50px; }
+#home { background: #f4f7f6; }
+#emergency { background: #fee; } /* Light red tint for urgency */
+
+.btn-login { 
+    padding: 10px 20px;
+    background-color: #dc3545; /* Red */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+.auth-page { display: flex; justify-content: center; align-items: center; height: 100vh; background: #f4f7f6; }
+.auth-box { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 300px; }
+.auth-box input, .auth-box select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; }
+.auth-box button { width: 100%; padding: 10px; background: #0056b3; color: white; border: none; cursor: pointer; }
+
+.hero { display: flex; align-items: center; justify-content: space-between; }
+.hero-content { max-width: 50%; }
+.hero h1 { font-size: 3.5rem; line-height: 1.2; color: #1a2a6c; }
+.highlight { color: #0056b3; }
+
+.btn-main { background: #d32f2f; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; }
+.btn-sub { margin-left: 20px; color: #0056b3; font-weight: bold; text-decoration: none; }
+
+/* The Pulse Effect */
+.pulse-circle {
+    width: 300px; height: 300px; background: #0056b3; border-radius: 50%;
+    animation: pulse 2s infinite; opacity: 0.7;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(0, 86, 179, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 86, 179, 0); }
+}
+/* Ensure the container takes up the full width available */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* This forces the Logo left and Nav right */
+    align-items: center;
+    padding: 0 20px;
+    width: 100%; /* Important: ensure it spans the width */
+}
+
+/* Ensure the nav element also spans the full width */
+nav { 
+    background: #fff; 
+    padding: 15px 0; 
+    position: fixed; 
+    width: 100%; 
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    z-index: 1000;
+}
+#emergency { background: #f8d7da; padding: 100px 20px; }
+
+/* The main layout split */
+.emergency-layout { 
+    display: flex; 
+    gap: 40px; 
+    align-items: flex-start; 
+}
+
+.emergency-text { flex: 1; } /* Takes up 1 part of the screen */
+.emergency-actions { flex: 2; } /* Takes up 2 parts of the screen */
+
+/* The cards */
+.cards-container { 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 20px; 
+}
+
+.card { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    flex: 1; 
+}
+
+.emergency-btn { 
+    width: 100%; 
+    padding: 20px; 
+    background: #b71c1c; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+}
+.hero-btns {
+    margin-top: 100px; /* This creates the space pushing the buttons down */
+    display: flex;
+    align-items: center;
+}
+#about { padding: 100px 20px; background: #ffffff; }
+
+.about-layout { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; /* This keeps things stacked nicely */
+    text-align: center; 
+}
+
+.about-text { margin-bottom: 30px; }
+
+.mission-box { 
+    background: #eef2f7; 
+    padding: 30px; 
+    border-left: 5px solid #0056b3; 
+    border-radius: 5px; 
+    text-align: left; /* Keep the mission text left-aligned for readability */
+}
+#contact { padding: 100px 20px; background: #f4f7f6; }
+
+.contact-layout { max-width: 900px; margin: 0 auto; }
+
+.contact-content { 
+    display: flex; 
+    gap: 40px; 
+    margin-top: 30px; 
+    align-items: center; 
+}
+
+.contact-info { flex: 1; font-size: 1.1rem; }
+
+.map-container { 
+    flex: 2; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    border-radius: 10px; 
+}
+.contact-content { 
+    display: flex; 
+    gap: 40px; 
+    margin-top: 30px; 
+    align-items: flex-start; /* Aligns text to the top of the map */
+}
+footer { 
+    background: #1a2a6c; 
+    color: white; 
+    text-align: center; 
+    padding: 20px 0; 
+    margin-top: 40px; 
+}
+
+footer p { margin: 0; font-size: 0.9rem; }
+#intake { padding: 100px 20px; background: #f4f7f6; }
+.intake-layout { display: flex; gap: 50px; align-items: flex-start; }
+.intake-text { flex: 1; }
+.intake-text p { color: #555; line-height: 1.6; margin-bottom: 20px; }
+.alert-box { background: #fff3cd; padding: 15px; border-radius: 5px; border-left: 5px solid #ffc107; color: #856404; }
+.alert-box h4 { margin: 0 0 5px 0; }
+.intake-form-box { flex: 2; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.intake-form-box h3 { margin-top: 0; color: #1a2a6c; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+.btn-submit { width: 100%; padding: 15px; background: #0056b3; color: white; border: none; border-radius: 5px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; }
+.btn-submit:hover { background: #004494; }
+.logo img {
+    display: block;
+    max-height: 50px; /* Adjust this to make it smaller or larger */
+    width: auto;
+}
+#emergencySection {
+    display: none; /* This keeps it hidden by default */
+}
+/* Navigation styling */
+nav {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    padding: 25px;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Button hover effect */
+nav button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+/* Navigation Container */
+.dashboard-nav {
+    display: flex;
+    align-items: center;    /* Keeps items vertically centered */
+    justify-content: space-between; /* Pushes logo left, buttons right */
+    padding: 10px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-btn, .logout-btn {
+    padding: 8px 16px; /* Slightly smaller buttons */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-btn { background-color: #007bff; }
+.logout-btn { background-color: #dc3545; }
+
+.nav-btn {
+    padding: 10px 20px;
+    background-color: #007bff; /* Bright blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #dc3545; /* Red */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 30px; /* Adds space between blue buttons and red button */
+}
+
+

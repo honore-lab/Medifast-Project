@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Dashboard | MediFast</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Medifast_Inc._Logo.png">
+</head>
+<body>
+    
+<nav class="dashboard-nav">
+    <a href="#home" class="logo">
+        <img src="Medifast_Inc._Logo.png" alt="MediFast Logo" style="height: 30px;">
+    </a>
+
+    <!-- New wrapper div for the buttons -->
+    <div class="nav-links">
+<button id="intakeBtn" class="nav-btn">Intake</button>
+<button id="emergencyBtn" class="nav-btn">Emergency</button>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+</nav>
+<br><br><br><br>
+  <h1 style="margin-top: 60px;">Medical Staff Dashboard</h1>
+    
+    <!-- Main Content Section -->
+ <!-- Main Content Section -->
+<!-- Make sure they are siblings, not one inside the other -->
+
+<div id="emergencySection" style="display: none; border: 2px solid red; padding: 20px;">
+    <h2>Emergency Intake Protocols</h2>
+    <p>Accessing live patient records and emergency tools...</p>
+
+    <!-- Add this table code here -->
+    <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>Emergency Type</th>
+                <th>Location</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="emergencyTableBody">
+            <!-- Emergency data will appear here -->
+        </tbody>
+    </table>
+</div>
+</div>
+
+<div id="intakeSection" style="display: block;">
+    <h2>Patient Intake Requests</h2>
+    <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <thead>
+            <tr>
+                <th style="padding: 10px; background: #eee;">Name</th>
+                <th style="padding: 10px; background: #eee;">DOB</th>
+                <th style="padding: 10px; background: #eee;">Reason</th>
+                <th style="padding: 10px; background: #eee;">Action</th>
+            </tr>
+        </thead>
+        <tbody id="intakeTableBody">
+            <!-- Data will be injected here by your JS -->
+        </tbody>
+    </table>
+</div>
+
+    <!-- Script to load the dashboard logic -->
+    <script type="module" src="dashboard-logic.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Medifast_Inc._Logo.png">
+    <title>MediFast | Patient Intake</title>
+</head>
+<body>
+    <script type="module" src="firebase-init.js"></script>
+
+    <nav>
+    <div class="container">
+        <a href="#home" class="logo">
+            <img src="Medifast_Inc._Logo.png" alt="MediFast Logo" style="height: 30px;">
+        </a>
+        <!-- This UL is now properly inside the container -->
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#emergency">Emergency</a></li>
+            <li><a href="#intake">Intake</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html" class="btn-login">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <section id="home">
+    <div class="container hero">
+        <div class="hero-content"><br><br><br><br><br>
+            <h1>Emergency Care, <br><span class="highlight">Reimagined.</span></h1>
+            <p>MediFast connects you to critical medical support in seconds. Advanced intake coordination for a faster, safer response.</p>
+            <div class="hero-btns">
+                <a href="#emergency" class="btn-main">Request Emergency</a>
+                <a href="#intake" class="btn-sub">Schedule Appointment</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- You can add a medical dashboard illustration here later -->
+           <br><br> <div class="pulse-circle"></div>
+        </div>
+    </div>
+
+</section>
+<section id="emergency"><br><br><br><br><br><br><br>
+    <div class="container emergency-layout">
+        <!-- Column 1: Text -->
+        <div class="emergency-text">
+            <h2>Emergency Protocol</h2>
+            <p>If you are experiencing a life-threatening emergency, follow these immediate steps:</p>
+        </div>
+
+        <!-- Column 2: The Action Area -->
+        <div class="emergency-actions">
+            <div class="cards-container">
+                <div class="card"><h3>1. Assess</h3><p>Check safety and consciousness.</p></div>
+                <div class="card"><h3>2. Alert</h3><p>Notify medical responders.</p></div>
+                <div class="card"><h3>3. Prepare</h3><p>Stay in a visible location.</p></div>
+            </div>
+            <br><br><br><br><br>
+           <button class="emergency-btn" onclick="activateEmergency()">ACTIVATE EMERGENCY RESPONSE</button>
+        </div>
+    </div>
+</section>
+<section id="intake"> <br><br><br><br>
+    <div class="container intake-layout">
+        <div class="intake-text">
+            <h2>Patient Intake Portal</h2>
+            <p>New patients and returning clients can pre-register or update their information here. This information is sent securely to our medical coordination team to expedite your care.</p>
+            <div class="alert-box">
+                <h4>For Emergency Use</h4>
+                <p>If you require immediate life-saving assistance, please use the red button in the Emergency section above.</p>
+            </div>
+        </div>
+
+        <div class="intake-form-box">
+            <h3>Patient Registration Form</h3>
+            <form id="intakeForm" onsubmit="event.preventDefault();" >
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Visit</label>
+                    <textarea id="reason" name="reason" placeholder="Briefly describe symptoms or appointment reason..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit Intake</button>
+            </form>
+        </div>
+    </div>
+</section>
+<section id="about"> <br><br><br><br>
+    <div class="container about-layout">
+        <!-- Group the heading and text in one div -->
+        <div class="about-text">
+            <h2>About MediFast</h2>
+            <p>MediFast was designed to bridge the critical gap between emergency events and medical response. By optimizing patient intake and coordination, we ensure that every second counts when it matters most.</p>
+            <p>Our goal is to eliminate systemic delays in medical data transfer, providing responders with accurate, real-time information to improve patient outcomes.</p>
+        </div>
+        
+        <!-- The mission box -->
+        <div class="mission-box">
+            <h3>Our Mission</h3>
+            <p>My mission is to make healthcare better focusing on making healthcare work efficient
+and emergency medical services in Africa better. Many hospitals and healthcare centers
+have patient waiting times and delays in emergency medical response. This makes
+healthcare services less effective. Sometimes puts patients lives at risk. These
+challenges are common in African healthcare systems where there are too many
+patients, poor patient scheduling and inefficient communication.</p>
+        </div>
+    </div>
+</section>
+<section id="contact"> <br><br><br><br>
+    <div class="container contact-layout">
+        <h2>Contact Us</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p><strong>Location:</strong> Kigali, Rwanda</p>
+                <p><strong>Phone:</strong> 0798682393</p>
+                <p><strong>Email:</strong> <a href="mailto:h.kamana@alustudent.com">h.kamana@alustudent.com</a></p>
+            </div>
+            
+            <div class="map-container">
+                <!-- Google Maps Embed for Kigali -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127607.75336184517!2d30.019183499999998!3d-1.9310667!2m3!1f0!2f0!3f0!3m2!1i1021!2i768!4f13.1!3m3!1m2!1s0x19dca42c4a96924b%3A0x1d47150a41d92b95!2sKigali!5e0!3m2!1sen!2srw!4v1720956000000!5m2!1sen!2srw" width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container-footer">
+        <p style="text-align: center;">&copy; 2026 MediFast. All rights reserved. | Software Development Project</p>
+    </div>
+</footer>
+<script type="module" src="intake-logic.js"></script>
+<script type="module" src="emergency-handler.js"></script>
+</body>
+</html>
+<script>
+    import { db } from './firebase-init.js';
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+document.getElementById('intakeForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+        fullName: document.getElementById('fullName').value,
+        dob: document.getElementById('dob').value,
+        reason: document.getElementById('reason').value,
+        timestamp: new Date()
+    };
+
+    try {
+        await addDoc(collection(db, "intakeForms"), formData);
+        alert("Intake submitted successfully!");
+        document.getElementById('intakeForm').reset();
+    } catch (error) {
+        alert("Error: " + error.message);
+    }
+});
+</script>
