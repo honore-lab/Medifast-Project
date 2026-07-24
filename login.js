@@ -1,6 +1,6 @@
-import { auth, db } from './firebase-init.js';
-import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+import { auth, db } from "./firebase-init.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.getElementById('LoginBtn');
@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const userDoc = await getDoc(doc(db, "users", user.uid));
                 if (userDoc.exists()) {
                     const role = userDoc.data().role;
-                    
-                    // Redirect based on role
+                   
                     if (role === "medical") {
                         window.location.href = "medical-dashboard.html";
                     } else {

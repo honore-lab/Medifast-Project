@@ -1,17 +1,23 @@
-# MediFast 🚑
+# MediFast
 
-MediFast is a web-based emergency response and healthcare management application designed to bridge the gap between patients requiring urgent medical attention and medical staff. 
+MediFast is a website that helps people who need help right away. It connects these people with doctors and nurses.
 
 ## Features
-* **Secure Authentication:** User registration and login powered by Firebase.
-* **Patient Intake Portal:** Allows patients to submit symptom descriptions and personal details.
-* **Real-Time Emergency Dispatch:** Instantly routes emergency requests and GPS location data to the medical staff dashboard.
-* **Status Tracking:** Tracks the lifecycle of an emergency from Active to Responding and finally Resolved.
 
-## Tech Stack
-* **Frontend:** HTML5, CSS3, JavaScript (ES6)
-* **Backend & Auth:** Firebase
-* **Design & Architecture:** UML Activity Diagrams, System Design
+* **Secure Login:** People can sign up. Log in to MediFast using Firebase.
 
-## Project Status
-Currently in the **Testing and Maintenance** phase (Software Development Life Cycle - Week 6).
+* **Patient Information:** Patients can tell us about their symptoms and a little bit, about themselves.
+
+* **Emergency Help:** When someone needs help we send their message and location to the doctors and nurses away.
+
+* **What Happens Next:** We keep track of what's happening with the emergency from when it starts to when it is all fixed.
+
+## Tech We Use
+
+* **Website:** We use HTML, CSS and JavaScript and its responsive to make the website.
+
+* **Behind The Scenes:** We use Firebase to make sure everything works properly and to keep peoples information safe.
+
+* **Planning:** We use diagrams to plan how the website will work.
+
+Thank you!

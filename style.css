@@ -141,8 +141,8 @@ nav {
 
 .map-container { 
     flex: 2; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    border-radius: 10px; 
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
+    border-radius: 20px; 
 }
 .contact-content { 
     display: flex; 
@@ -165,7 +165,7 @@ footer p { margin: 0; font-size: 0.9rem; }
 .intake-text p { color: #555; line-height: 1.6; margin-bottom: 20px; }
 .alert-box { background: #fff3cd; padding: 15px; border-radius: 5px; border-left: 5px solid #ffc107; color: #856404; }
 .alert-box h4 { margin: 0 0 5px 0; }
-.intake-form-box { flex: 2; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.intake-form-box { flex: 2; background: rgb(255, 255, 255); padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 .intake-form-box h3 { margin-top: 0; color: #1a2a6c; }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
@@ -238,3 +238,122 @@ nav button:hover {
 }
 
 
+/* Dashboard Modern Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 15px;
+}
+
+th {
+    background-color: #0284c7;
+    color: rgb(14, 14, 14);
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 14px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+    transition: background-color 0.2s ease;
+}
+
+/* Modern Delete Action Button */
+button[onclick*="delete"], .delete-btn {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button[onclick*="delete"]:hover, .delete-btn:hover {
+    background-color: #dc2626;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+/* Status Badges */
+.status-pending {
+    background-color: #fef3c7;
+    color: #d97706;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+/* Dark Mode Variables & Styles */
+body.dark-mode {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+body.dark-mode nav,
+body.dark-mode .dashboard-nav {
+    background-color: #1e293b !important;
+    border-bottom: 1px solid #334155;
+}
+
+body.dark-mode table {
+    background: #1e293b;
+    color: #f8fafc;
+}
+
+body.dark-mode th {
+    background-color: #0284c7;
+}
+
+body.dark-mode td {
+    color: #cbd5e1;
+    border-bottom: 1px solid #334155;
+}
+
+body.dark-mode tbody tr:hover {
+    background-color: #334155;
+}
+
+/* Theme Toggle Button */
+#themeToggleBtn {
+    background: transparent;
+    border: 2px solid #cbd5e1;
+    color: inherit;
+    font-size: 16px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 10px;
+}
+
+#themeToggleBtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode #themeToggleBtn {
+    border-color: #475569;
+}
+
+body.dark-mode #themeToggleBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
