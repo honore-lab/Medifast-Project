@@ -166,7 +166,7 @@ patients, poor patient scheduling and inefficient communication.</p>
         </form>
     </div>
 </div>
-<!-- Your existing body content and scripts -->
+
     
     <script>
         function toggleTheme() {
@@ -202,8 +202,8 @@ document.getElementById('emergencyForm')?.addEventListener('submit', async (e) =
     e.preventDefault();
 
     const emergencyData = {
-        fullName: document.getElementById('emergencyName').value,   // Matches input ID in  HTML
-        phone: document.getElementById('emergencyPhone').value,     // Matches input ID in  HTML
+        fullName: document.getElementById('emergencyName').value,   
+        phone: document.getElementById('emergencyPhone').value,     
         message: "EMERGENCY ACTIVATED: Immediate assistance required.",
         status: "active",
         timestamp: new Date().toISOString()

@@ -9,11 +9,11 @@ nav a { text-decoration: none; color: #0056b3; font-weight: bold; }
 
 section { height: 100vh; padding: 100px 50px; }
 #home { background: #f4f7f6; }
-#emergency { background: #fee; } /* Light red tint for urgency */
+#emergency { background: #fee; } 
 
 .btn-login { 
     padding: 10px 20px;
-    background-color: #dc3545; /* Red */
+    background-color: #dc3545; 
     color: white;
     border: none;
     border-radius: 4px;
@@ -44,7 +44,7 @@ section { height: 100vh; padding: 100px 50px; }
     70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(0, 86, 179, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 86, 179, 0); }
 }
-/* Ensure the container takes up the full width available */
+/* container takes up the full width available */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -55,7 +55,7 @@ section { height: 100vh; padding: 100px 50px; }
     width: 100%; /* Important: ensure it spans the width */
 }
 
-/* Ensure the nav element also spans the full width */
+/*  nav element also spans the full width */
 nav { 
     background: #fff; 
     padding: 15px 0; 
@@ -74,8 +74,8 @@ nav {
     align-items: flex-start; 
 }
 
-.emergency-text { flex: 1; } /* Takes up 1 part of the screen */
-.emergency-actions { flex: 2; } /* Takes up 2 parts of the screen */
+.emergency-text { flex: 1; } 
+.emergency-actions { flex: 2; } 
 
 /* The cards */
 .cards-container { 
@@ -103,7 +103,7 @@ nav {
     font-weight: bold; 
 }
 .hero-btns {
-    margin-top: 100px; /* This creates the space pushing the buttons down */
+    margin-top: 100px;
     display: flex;
     align-items: center;
 }
@@ -113,7 +113,7 @@ nav {
     max-width: 800px; 
     margin: 0 auto; 
     display: flex; 
-    flex-direction: column; /* This keeps things stacked nicely */
+    flex-direction: column;
     text-align: center; 
 }
 
