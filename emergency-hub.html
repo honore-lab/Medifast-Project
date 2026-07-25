@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediFast | Emergency Hub & Advisories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="dashboard-nav">
+        <div class="logo">MediFast</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="emergency-hub.html" class="active">Emergency Hub</a>
+            <a href="medical-dashboard.html">Dashboard</a>
+            <a href="#" id="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Layout -->
+    <div class="about-layout" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+        <h1>Live Health Advisories & Emergency Locator</h1>
+        <p>Real-time environmental tracking and regional emergency resource coordination powered by external APIs.</p>
+
+        <!-- Weather & Air Quality API Section -->
+        <div class="card" style="background: #1e293b; color: #f8fafc; padding: 20px; border-radius: 8px; margin-top: 20px;">
+            <h3>Live Environmental & Air Quality Advisory</h3>
+            <div id="weather-data" style="margin-top: 15px;">
+                <p>Fetching local meteorological and air quality data...</p>
+            </div>
+        </div>
+
+        <!-- Emergency Center Search & Filter Section -->
+        <div style="margin-top: 30px;">
+            <h3>Find Nearby Emergency Centers</h3>
+            <input type="text" id="search-centers" placeholder="Search by facility name or specialization..." style="padding: 10px; width: 100%; max-width: 400px; margin-top: 10px; border-radius: 4px; border: 1px solid #ccc;">
+            
+            <div id="centers-list" style="margin-top: 20px; display: grid; gap: 15px;">
+                <!-- Dynamic Results populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to handle API fetching and filtering -->
+    <script>
+        // Example External Public API Integration (Open-Meteo for Weather & Air Quality)
+        async function fetchEnvironmentalData() {
+            try {
+                // Fetching coordinates for Kigali as baseline or using geolocation
+                const lat = -1.9441;
+                const lon = 30.0619;
+                const response = await fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&current=us_aqi,pm2_5`);
+                const data = await response.json();
+                
+                const aqi = data.current.us_aqi;
+                let statusText = "Good (Safe for outdoor activities)";
+                let statusColor = "#22c55e";
+
+                if (aqi > 50) {
+                    statusText = "Moderate (Sensitive individuals should limit prolonged outdoor exertion)";
+                    statusColor = "#eab308";
+                }
+
+                document.getElementById('weather-data').innerHTML = `
+                    <p><strong>Current Location:</strong> Kigali Region</p>
+                    <p><strong>US Air Quality Index (AQI):</strong> ${aqi} - <span style="color: ${statusColor}; font-weight: bold;">${statusText}</span></p>
+                    <p><strong>PM2.5 Concentration:</strong> ${data.current.pm2_5} µg/m³</p>
+                `;
+            } catch (error) {
+                document.getElementById('weather-data').innerHTML = `<p style="color: #ef4444;">Error fetching live advisory data. Please check your connection.</p>`;
+            }
+        }
+
+        fetchEnvironmentalData();
+
+        // Sample data for searching/filtering emergency facilities
+        const facilities = [
+            { name: "Central Emergency Hospital", type: "Trauma & General", distance: "1.2 km", status: "Available" },
+            { name: "Kigali Rapid Medical Response", type: "Ambulance Dispatch", distance: "2.5 km", status: "Available" },
+            { name: "Community Health Care Post", type: "Urgent Care", distance: "3.8 km", status: "Busy" },
+            { name: "Advanced Cardiac Care Unit", type: "Cardiology", distance: "5.0 km", status: "Available" }
+        ];
+
+        function renderFacilities(filterText = "") {
+            const listContainer = document.getElementById('centers-list');
+            listContainer.innerHTML = "";
+
+            const filtered = facilities.filter(f => f.name.toLowerCase().includes(filterText.toLowerCase()) || f.type.toLowerCase().includes(filterText.toLowerCase()));
+
+            if (filtered.length === 0) {
+                listContainer.innerHTML = "<p>No emergency facilities match your search criteria.</p>";
+                return;
+            }
+
+            filtered.forEach(facility => {
+                const card = document.createElement('div');
+                card.style.cssText = "padding: 15px; background: #ffffff; color: #1e293b; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;";
+                card.innerHTML = `
+                    <div>
+                        <strong>${facility.name}</strong><br>
+                        <small>Type: ${facility.type} | Distance: ${facility.distance}</small>
+                    </div>
+                    <span style="padding: 5px 10px; background: ${facility.status === 'Available' ? '#dcfce7' : '#fee2e2'}; color: ${facility.status === 'Available' ? '#166534' : '#991b1b'}; border-radius: 4px; font-size: 12px; font-weight: bold;">${facility.status}</span>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        renderFacilities();
+
+        // Search & Filter event listener requirement fulfillment
+        document.getElementById('search-centers').addEventListener('input', (e) => {
+            renderFacilities(e.target.value);
+        });
+    </script>
+</body>
+</html>x    
