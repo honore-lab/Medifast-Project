@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediFast | Emergency Hub</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Medifast_Inc._Logo.png">
 </head>
 <body>
-    <!-- Top Navigation matching index page -->
+    <!-- Top Navigation -->
     <nav>
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-            <a href="#home" class="logo">
-                <img src="Medifast_Inc_Logo.png" alt="MediFast Logo" style="height: 30px;">
-            </a>
+            <div class="container">
+        <a href="#home" class="logo">
+            <img src="Medifast_Inc._Logo.png" alt="MediFast Logo" style="height: 30px;">
+        </a>
+        
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="emergency-hub.html" style="color: #ef4444; font-weight: bold;">Emergency Hub</a></li>
-                <li><a href="medical-dashboard.html">Dashboard</a></li>
+            
                 <li><a href="index.html" class="btn-login" id="logout-btn">Logout</a></li>
             </ul>
         </div>
@@ -40,7 +43,7 @@
             </div>
         </div>
 
-        <!-- Emergency Center Search & Filter Section -->
+        <!--  Search & Filter Section -->
         <div style="margin-top: 40px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                 <h3 style="margin: 0; color: #1e293b;">Find Nearby Emergency Centers</h3>
@@ -53,7 +56,7 @@
         </div>
     </div>
 
-    <!-- Script to handle API fetching and filtering -->
+    
     <script>
         // Open-Meteo Air Quality API Integration
         async function fetchEnvironmentalData() {
@@ -86,7 +89,7 @@
 
         fetchEnvironmentalData();
 
-        // Sample data for searching/filtering emergency facilities
+       
         const facilities = [
             { name: "Central Emergency Hospital", type: "Trauma & General", distance: "1.2 km", status: "Available" },
             { name: "Kigali Rapid Medical Response", type: "Ambulance Dispatch", distance: "2.5 km", status: "Available" },
@@ -121,7 +124,7 @@
 
         renderFacilities();
 
-        // Search & Filter event listener
+      
         document.getElementById('search-centers').addEventListener('input', (e) => {
             renderFacilities(e.target.value);
         });
