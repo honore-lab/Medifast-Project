@@ -3,38 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediFast | Emergency Hub & Advisories</title>
+    <title>MediFast | Emergency Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Top Navigation -->
-    <nav class="dashboard-nav">
-        <div class="logo">MediFast</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="emergency-hub.html" class="active">Emergency Hub</a>
-            <a href="medical-dashboard.html">Dashboard</a>
-            <a href="#" id="logout-btn">Logout</a>
+    <!-- Top Navigation matching index page -->
+    <nav>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="#home" class="logo">
+                <img src="Medifast_Inc_Logo.png" alt="MediFast Logo" style="height: 30px;">
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="emergency-hub.html" style="color: #ef4444; font-weight: bold;">Emergency Hub</a></li>
+                <li><a href="medical-dashboard.html">Dashboard</a></li>
+                <li><a href="index.html" class="btn-login" id="logout-btn">Logout</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Main Content Layout -->
-    <div class="about-layout" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
-        <h1>Live Health Advisories & Emergency Locator</h1>
-        <p>Real-time environmental tracking and regional emergency resource coordination powered by external APIs.</p>
+    <div style="padding: 40px 20px; max-width: 900px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h1 style="font-size: 2.2rem; color: #1e293b; margin-bottom: 10px;">Live Health Advisories & Emergency Locator</h1>
+            <p style="color: #64748b; font-size: 1rem;">Real-time environmental tracking and regional emergency resource coordination powered by external APIs.</p>
+        </div>
 
-        <!-- Weather & Air Quality API Section -->
-        <div class="card" style="background: #1e293b; color: #f8fafc; padding: 20px; border-radius: 8px; margin-top: 20px;">
-            <h3>Live Environmental & Air Quality Advisory</h3>
-            <div id="weather-data" style="margin-top: 15px;">
+        <!-- Weather & Air Quality API Card -->
+        <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #f8fafc; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 15px;">
+                <h3 style="margin: 0; font-size: 1.25rem;">Live Environmental & Air Quality Advisory</h3>
+                <span style="background: rgba(34, 197, 94, 0.2); color: #4ade80; padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: bold;">Live API Feed</span>
+            </div>
+            <div id="weather-data" style="font-size: 1rem; line-height: 1.6;">
                 <p>Fetching local meteorological and air quality data...</p>
             </div>
         </div>
 
         <!-- Emergency Center Search & Filter Section -->
-        <div style="margin-top: 30px;">
-            <h3>Find Nearby Emergency Centers</h3>
-            <input type="text" id="search-centers" placeholder="Search by facility name or specialization..." style="padding: 10px; width: 100%; max-width: 400px; margin-top: 10px; border-radius: 4px; border: 1px solid #ccc;">
+        <div style="margin-top: 40px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #1e293b;">Find Nearby Emergency Centers</h3>
+            </div>
+            <input type="text" id="search-centers" placeholder="Search by facility name or specialization (e.g., Trauma, Ambulance)..." style="padding: 12px 16px; width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; transition: border-color 0.2s; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);">
             
             <div id="centers-list" style="margin-top: 20px; display: grid; gap: 15px;">
                 <!-- Dynamic Results populated via JS -->
@@ -44,31 +55,32 @@
 
     <!-- Script to handle API fetching and filtering -->
     <script>
-        // Example External Public API Integration (Open-Meteo for Weather & Air Quality)
+        // Open-Meteo Air Quality API Integration
         async function fetchEnvironmentalData() {
             try {
-                // Fetching coordinates for Kigali as baseline or using geolocation
-                const lat = -1.9441;
+                const lat = -1.9441; // Kigali coordinates baseline
                 const lon = 30.0619;
                 const response = await fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&current=us_aqi,pm2_5`);
                 const data = await response.json();
                 
                 const aqi = data.current.us_aqi;
                 let statusText = "Good (Safe for outdoor activities)";
-                let statusColor = "#22c55e";
+                let statusColor = "#4ade80";
 
                 if (aqi > 50) {
-                    statusText = "Moderate (Sensitive individuals should limit prolonged outdoor exertion)";
-                    statusColor = "#eab308";
+                    statusText = "Moderate (Sensitive individuals should limit outdoor exertion)";
+                    statusColor = "#facc15";
                 }
 
                 document.getElementById('weather-data').innerHTML = `
-                    <p><strong>Current Location:</strong> Kigali Region</p>
-                    <p><strong>US Air Quality Index (AQI):</strong> ${aqi} - <span style="color: ${statusColor}; font-weight: bold;">${statusText}</span></p>
-                    <p><strong>PM2.5 Concentration:</strong> ${data.current.pm2_5} µg/m³</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px;">
+                        <div><strong>Region:</strong> Kigali Central</div>
+                        <div><strong>US Air Quality Index:</strong> <span style="color: ${statusColor}; font-weight: bold;">${aqi} (${statusText})</span></div>
+                        <div><strong>PM2.5 Concentration:</strong> ${data.current.pm2_5} µg/m³</div>
+                    </div>
                 `;
             } catch (error) {
-                document.getElementById('weather-data').innerHTML = `<p style="color: #ef4444;">Error fetching live advisory data. Please check your connection.</p>`;
+                document.getElementById('weather-data').innerHTML = `<p style="color: #f87171;">Error fetching live advisory data. Please check your network connection.</p>`;
             }
         }
 
@@ -89,19 +101,19 @@
             const filtered = facilities.filter(f => f.name.toLowerCase().includes(filterText.toLowerCase()) || f.type.toLowerCase().includes(filterText.toLowerCase()));
 
             if (filtered.length === 0) {
-                listContainer.innerHTML = "<p>No emergency facilities match your search criteria.</p>";
+                listContainer.innerHTML = "<p style='color: #64748b; text-align: center; padding: 20px;'>No emergency facilities match your search criteria.</p>";
                 return;
             }
 
             filtered.forEach(facility => {
                 const card = document.createElement('div');
-                card.style.cssText = "padding: 15px; background: #ffffff; color: #1e293b; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;";
+                card.style.cssText = "padding: 18px 20px; background: #ffffff; color: #1e293b; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s;";
                 card.innerHTML = `
                     <div>
-                        <strong>${facility.name}</strong><br>
-                        <small>Type: ${facility.type} | Distance: ${facility.distance}</small>
+                        <strong style="font-size: 1.1rem; color: #0f172a;">${facility.name}</strong><br>
+                        <span style="color: #64748b; font-size: 0.9rem;">Specialization: ${facility.type} &bull; Distance: ${facility.distance}</span>
                     </div>
-                    <span style="padding: 5px 10px; background: ${facility.status === 'Available' ? '#dcfce7' : '#fee2e2'}; color: ${facility.status === 'Available' ? '#166534' : '#991b1b'}; border-radius: 4px; font-size: 12px; font-weight: bold;">${facility.status}</span>
+                    <span style="padding: 6px 12px; background: ${facility.status === 'Available' ? '#dcfce7' : '#fee2e2'}; color: ${facility.status === 'Available' ? '#166534' : '#991b1b'}; border-radius: 6px; font-size: 0.85rem; font-weight: bold;">${facility.status}</span>
                 `;
                 listContainer.appendChild(card);
             });
@@ -109,10 +121,10 @@
 
         renderFacilities();
 
-        // Search & Filter event listener requirement fulfillment
+        // Search & Filter event listener
         document.getElementById('search-centers').addEventListener('input', (e) => {
             renderFacilities(e.target.value);
         });
     </script>
 </body>
-</html>x    
+</html>
