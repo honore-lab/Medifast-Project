@@ -20,4 +20,7 @@ MediFast is a website that helps people who need help right away. It connects th
 
 * **Planning:** We use diagrams to plan how the website will work.
 
+* **Deployment:** we use netlify.
+
+* **Database:** We use firebase.
 Thank you!
