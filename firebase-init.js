@@ -1,21 +1,21 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-// For Firebase JS SDK v7.20.0 
-const firebaseConfig = {
-  apiKey: "AIzaSyCdMZviRz0YgILI8Qjc_AhPc-8CRlqYEvs",
-  authDomain: "medifast-5d2f4.firebaseapp.com",
-  projectId: "medifast-5d2f4",
-  storageBucket: "medifast-5d2f4.firebasestorage.app",
-  messagingSenderId: "516939323816",
-  appId: "1:516939323816:web:f596e573458dad98d6a59d",
-  measurementId: "G-78ZECXLX6W"
-};
+// Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBXApddf0uNHUlBi_mkuFq4dUlUPwHoorM",
+    authDomain: "medi-fast-890e2.firebaseapp.com",
+    projectId: "medi-fast-890e2",
+    storageBucket: "medi-fast-890e2.firebasestorage.app",
+    messagingSenderId: "1015087315721",
+    appId: "1:1015087315721:web:e8babac82dc57474b171d8",
+    measurementId: "G-SW7H4JDCMZ"
+  };
 
-// Add exports  auth.js 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
