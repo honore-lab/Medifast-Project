@@ -8,8 +8,7 @@ const firebaseConfig = {
   projectId: "medi-fast-890e2",
   storageBucket: "medi-fast-890e2.firebasestorage.app",
   messagingSenderId: "1015087315721",
-  appId: "1:1015087315721:web:e8babac82dc57474b171d8",
-  measurementId: "G-SW7H4JDCMZ"
+  appId: "1:1015087315721:web:e8babac82dc57474b171d8"
 };
 
 const app = initializeApp(firebaseConfig);
