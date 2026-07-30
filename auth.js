@@ -20,7 +20,7 @@ document.getElementById('registerBtn').addEventListener('click', async () => {
         localStorage.setItem('mediFastUser', JSON.stringify(mockUser));
 
         alert("Successfully registered as " + userType);
-        window.location.href = "login.html"; // Or redirect straight to your dashboard page if you prefer!
+        window.location.href = "index.html"; // Or redirect straight to your dashboard page if you prefer!
 
     } catch (error) {
         alert("Error: " + error.message);
