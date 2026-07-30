@@ -1,5 +1,4 @@
 import { auth, db } from './firebase-init.js';
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 document.getElementById('registerBtn').addEventListener('click', async () => {
@@ -9,18 +8,20 @@ document.getElementById('registerBtn').addEventListener('click', async () => {
     const userType = document.getElementById('UserType').value;
 
     try {
-        // 1. Create account
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        
-        // 2. Add extra info to Firestore
-        await setDoc(doc(db, "users", userCredential.user.uid), {
-            fullName: fullname,
+        // --- DEADLINE BYPASS: Mock Local Storage Auth ---
+        const mockUser = {
+            uid: "mock-user-" + Date.now(),
             email: email,
+            fullName: fullname,
             role: userType
-        });
+        };
+
+        // Save user session locally so your dashboard knows who is logged in
+        localStorage.setItem('mediFastUser', JSON.stringify(mockUser));
 
         alert("Successfully registered as " + userType);
-        window.location.href = "login.html"; // Redirect to login
+        window.location.href = "login.html"; // Or redirect straight to your dashboard page if you prefer!
+
     } catch (error) {
         alert("Error: " + error.message);
     }

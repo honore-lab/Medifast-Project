@@ -1,9 +1,8 @@
 import { auth, db } from "./firebase-init.js";
-import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-    const loginBtn = document.getElementById('LoginBtn');
+    const loginBtn = document.getElementById('loginBtn');
 
     if (loginBtn) {
         loginBtn.addEventListener('click', async () => {
@@ -11,19 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = document.getElementById('password').value;
 
             try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                const user = userCredential.user;
+                // --- DEADLINE BYPASS: Mock Login Session ---
+                const mockUser = {
+                    email: email,
+                    role: "patient" // Or change to "medical" if testing medical dashboard
+                };
 
-                const userDoc = await getDoc(doc(db, "users", user.uid));
-                if (userDoc.exists()) {
-                    const role = userDoc.data().role;
-                   
-                    if (role === "medical") {
-                        window.location.href = "medical-dashboard.html";
-                    } else {
-                        window.location.href = "index.html";
-                    }
-                }
+                localStorage.setItem('mediFastUser', JSON.stringify(mockUser));
+
+                // Redirect straight to dashboard
+                window.location.href = "medical-dashboard.html";
+
             } catch (error) {
                 alert("Login failed: " + error.message);
             }
